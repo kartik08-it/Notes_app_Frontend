@@ -1,8 +1,9 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import LoginPage from "../pages/auth/LoginPage";
 import Dashboard from "../pages/dashboard/Dashboard";
-// import Profile from "../pages/Profile";
+import CreateNote from "../pages/notes/createNote";
 import ProtectedRoute from "../ProtectedRoute";
+import Layout from "../components/layout/Layout/layout";
 
 const AppRoutes = () => {
   const isAuthenticated = localStorage.getItem("auth");
@@ -21,27 +22,20 @@ const AppRoutes = () => {
         }
       />
 
-      {/* Login Route */}
+      {/* Public Route */}
       <Route path="/login" element={<LoginPage />} />
 
-      {/* All Protected Routes */}
+      {/* Protected Layout Wrapper */}
       <Route
-        path="/dashboard"
         element={
           <ProtectedRoute>
-            <Dashboard />
+            <Layout />
           </ProtectedRoute>
         }
-      />
-
-      {/* <Route
-        path="/profile"
-        element={
-          <ProtectedRoute>
-            <Profile />
-          </ProtectedRoute>
-        }
-      /> */}
+      >
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/notes/new" element={<CreateNote />} />
+      </Route>
 
       {/* Fallback */}
       <Route path="*" element={<Navigate to="/" replace />} />

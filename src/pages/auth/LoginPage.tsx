@@ -27,7 +27,7 @@ const LoginPage = () => {
         </div>
 
         <div className="text-center mb-6">
-          <h1 className="text-2xl font-semibold text-gray-800">Welcome Back</h1>
+          <h1 className="text-2xl font-semibold text-gray-800">Welcome</h1>
           <p className="text-sm text-gray-500 mt-1">Sign in to your notes</p>
         </div>
 
@@ -99,7 +99,7 @@ const LoginPage = () => {
             </button>
 
             <p className="text-sm text-center text-gray-500 mt-4">
-              Don&apos;t have an account?{" "}
+              Don&apos;t have an account? &nbsp;
               <span className="text-orange-500 font-medium cursor-pointer hover:underline transition-colors">
                 Sign up
               </span>

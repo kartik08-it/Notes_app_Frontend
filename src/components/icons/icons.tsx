@@ -16,6 +16,8 @@ import {
     FileArchive,
     Share2,
     Download,
+    Sparkles,
+    Tags,
 } from "lucide-react";
 
 export const EditIcon = Edit;
@@ -34,3 +36,5 @@ export const PinIcon = Pin;
 export const FileArchiveIcon = FileArchive;
 export const ShareIcon = Share2;
 export const DownloadIcon = Download;
+export const AiIcon = Sparkles;
+export const TagIcon = Tags;

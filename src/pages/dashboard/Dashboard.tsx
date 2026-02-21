@@ -1,5 +1,8 @@
+import { useNavigate } from "react-router-dom";
 import { SearchIcon, PlusIcon, GridIcon, ListIcon, MoreIcon, EditIcon, PinIcon, FileArchiveIcon, ShareIcon, DownloadIcon, TrashIcon } from "../../components/icons/icons";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import Navbar from "../../components/layout/navbar/navbar";
+import { NavbarContext } from "../../components/layout/Layout/layout";
 
 const notes = [
     {
@@ -49,6 +52,9 @@ const notes = [
 const Dashboard = () => {
     const [view, setView] = useState<"grid" | "list">("grid");
     const [openMenu, setOpenMenu] = useState<number | null>(null);
+    const navigate = useNavigate();
+    const setNavbar = useContext(NavbarContext);
+
     useEffect(() => {
         const handleClickOutside = () => {
             setOpenMenu(null);
@@ -58,43 +64,25 @@ const Dashboard = () => {
         return () => window.removeEventListener("click", handleClickOutside);
     }, []);
 
+    useEffect(() => {
+        setNavbar({
+            showSearch: true,
+            actionButton: (
+                <button
+                    onClick={() => navigate("/notes/new")}
+                    className="flex items-center gap-2 bg-orange-500 text-white px-4 py-2 rounded-lg shadow hover:bg-orange-600 transition"
+                >
+                    <PlusIcon size={16} />
+                    New Note
+                </button>
+            ),
+        });
+
+        return () => setNavbar({});
+    }, []);
+
     return (
         <div className="min-h-screen bg-gray-100">
-            {/* Top Navbar */}
-            <div className="flex items-center justify-between px-8 py-4 bg-white shadow-sm">
-                <div className="flex items-center gap-3">
-                    <div className="h-10 w-10 rounded-xl bg-orange-500 text-white flex items-center justify-center font-bold shadow-md">
-                        NH
-                    </div>
-                    <h1 className="text-xl font-semibold text-gray-800">NotesHub</h1>
-                </div>
-
-                <div className="flex items-center gap-6">
-                    {/* Search */}
-                    <div className="relative">
-                        <SearchIcon
-                            size={18}
-                            className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
-                        />
-                        <input
-                            type="text"
-                            placeholder="Search notes..."
-                            className="pl-10 pr-4 py-2 w-72 rounded-lg border border-gray-200 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-orange-400"
-                        />
-                    </div>
-
-                    {/* New Button */}
-                    <button className="flex items-center gap-2 bg-orange-500 text-white px-4 py-2 rounded-lg shadow hover:bg-orange-600 transition">
-                        <PlusIcon size={16} />
-                        New Note
-                    </button>
-
-                    {/* Avatar */}
-                    <div className="h-9 w-9 bg-orange-500 text-white rounded-full flex items-center justify-center font-medium">
-                        AJ
-                    </div>
-                </div>
-            </div>
 
             {/* Main Layout */}
             <div className="flex">
