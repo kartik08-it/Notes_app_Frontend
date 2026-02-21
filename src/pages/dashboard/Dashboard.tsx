@@ -1,4 +1,4 @@
-import { Search, Plus, Grid, List, MoreVertical, Edit } from "lucide-react";
+import { SearchIcon, PlusIcon, GridIcon, ListIcon, MoreIcon, EditIcon, PinIcon, FileArchiveIcon, ShareIcon, DownloadIcon, TrashIcon } from "../../components/icons/icons";
 import { useState, useEffect } from "react";
 
 const notes = [
@@ -72,7 +72,7 @@ const Dashboard = () => {
                 <div className="flex items-center gap-6">
                     {/* Search */}
                     <div className="relative">
-                        <Search
+                        <SearchIcon
                             size={18}
                             className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
                         />
@@ -85,7 +85,7 @@ const Dashboard = () => {
 
                     {/* New Button */}
                     <button className="flex items-center gap-2 bg-orange-500 text-white px-4 py-2 rounded-lg shadow hover:bg-orange-600 transition">
-                        <Plus size={16} />
+                        <PlusIcon size={16} />
                         New Note
                     </button>
 
@@ -146,11 +146,11 @@ const Dashboard = () => {
                         </div>
 
                         <div className="flex gap-3 text-gray-500">
-                            <Grid
+                            <GridIcon
                                 onClick={() => setView("grid")}
                                 className={`cursor-pointer transition ${view === "grid" ? "text-orange-500" : "hover:text-orange-500"}`}
                             />
-                            <List
+                            <ListIcon
                                 onClick={() => setView("list")}
                                 className={`cursor-pointer transition ${view === "list" ? "text-orange-500" : "hover:text-orange-500"}`}
                             />
@@ -204,32 +204,48 @@ const Dashboard = () => {
                                             e.stopPropagation();
                                             setOpenMenu(openMenu === index ? null : index);
                                         }}
-                                        className="p-1 rounded-md hover:bg-gray-100 transition"
+                                        className="p-1 rounded-md transition"
                                     >
-                                        <MoreVertical size={18} />
+                                        <MoreIcon size={18} className="text-black" />
                                     </button>
 
                                     {openMenu === index && (
-                                        <div className="absolute right-0 mt-2 w-44 bg-white border rounded-lg shadow-lg z-50">
-                                            <ul className="text-sm text-gray-700">
-                                                <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
-                                                    <Edit size={15} />Edit
+                                        <div className="absolute right-0 mt-2 w-52 bg-white border border-gray-200 rounded-xl shadow-lg z-50">
+                                            <ul className="text-sm text-gray-700 py-2">
+
+                                                <li className="flex items-center gap-3 px-4 py-2 hover:bg-gray-100 cursor-pointer transition">
+                                                    <EditIcon size={16} className="text-gray-500" />
+                                                    <span>Edit</span>
                                                 </li>
-                                                <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
-                                                    Pin / Unpin
+
+                                                <li className="flex items-center gap-3 px-4 py-2 hover:bg-gray-100 cursor-pointer transition">
+                                                    <PinIcon size={16} className="text-gray-500" />
+                                                    <span>Pin / Unpin</span>
                                                 </li>
-                                                <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
-                                                    Archive
+
+                                                <li className="flex items-center gap-3 px-4 py-2 hover:bg-gray-100 cursor-pointer transition">
+                                                    <FileArchiveIcon size={16} className="text-gray-500" />
+                                                    <span>Archive</span>
                                                 </li>
-                                                <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
-                                                    Share
+
+                                                <li className="flex items-center gap-3 px-4 py-2 hover:bg-gray-100 cursor-pointer transition">
+                                                    <ShareIcon size={16} className="text-gray-500" />
+                                                    <span>Share</span>
                                                 </li>
-                                                <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
-                                                    Export as Markdown
+
+                                                <li className="flex items-center gap-3 px-4 py-2 hover:bg-gray-100 cursor-pointer transition">
+                                                    <DownloadIcon size={16} className="text-gray-500" />
+                                                    <span>Export as Markdown</span>
                                                 </li>
-                                                <li className="px-4 py-2 text-red-500 hover:bg-red-50 cursor-pointer">
-                                                    Move to Trash
+
+                                                {/* Separator */}
+                                                <div className="my-2 border-t border-gray-200" />
+
+                                                <li className="flex items-center gap-3 px-4 py-2 text-red-600 hover:bg-red-50 cursor-pointer transition">
+                                                    <TrashIcon size={16} />
+                                                    <span>Move to Trash</span>
                                                 </li>
+
                                             </ul>
                                         </div>
                                     )}

@@ -1,4 +1,4 @@
-import { Mail, Lock, FileText, Eye, EyeOff } from "lucide-react";
+import { MailIcon, LockIcon, FileTextIcon, EyeIcon, EyeOffIcon } from "../../components/icons/icons";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -22,7 +22,7 @@ const LoginPage = () => {
         {/* Top Icon */}
         <div className="flex justify-center mb-4">
           <div className="h-14 w-14 flex items-center justify-center rounded-xl bg-gradient-to-br from-orange-500 to-orange-600 text-white shadow-lg">
-            <FileText size={28} strokeWidth={2} />
+            <FileTextIcon size={28} strokeWidth={2} />
           </div>
         </div>
 
@@ -39,7 +39,7 @@ const LoginPage = () => {
                 Email
               </label>
               <div className="relative">
-                <Mail
+                <MailIcon
                   className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
                   size={18}
                 />
@@ -63,7 +63,7 @@ const LoginPage = () => {
 
               <div className="relative">
                 {/* Left Lock Icon */}
-                <Lock
+                <LockIcon
                   className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
                   size={18}
                 />
@@ -86,7 +86,7 @@ const LoginPage = () => {
                   onClick={() => setShowPassword(!showPassword)}
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
                 >
-                  {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                  {showPassword ? <EyeOffIcon size={18} /> : <EyeIcon size={18} />}
                 </button>
               </div>
             </div>
