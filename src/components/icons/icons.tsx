@@ -18,6 +18,7 @@ import {
     Download,
     Sparkles,
     Tags,
+    MoveLeft,
 } from "lucide-react";
 
 export const EditIcon = Edit;
@@ -38,3 +39,4 @@ export const ShareIcon = Share2;
 export const DownloadIcon = Download;
 export const AiIcon = Sparkles;
 export const TagIcon = Tags;
+export const BackIcon = MoveLeft;

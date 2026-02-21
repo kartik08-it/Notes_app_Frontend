@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import { SearchIcon, PlusIcon, GridIcon, ListIcon, MoreIcon, EditIcon, PinIcon, FileArchiveIcon, ShareIcon, DownloadIcon, TrashIcon } from "../../components/icons/icons";
+import { PlusIcon, GridIcon, ListIcon, MoreIcon, EditIcon, PinIcon, FileArchiveIcon, ShareIcon, DownloadIcon, TrashIcon } from "../../components/icons/icons";
 import { useState, useEffect, useContext } from "react";
-import Navbar from "../../components/layout/navbar/navbar";
 import { NavbarContext } from "../../components/layout/Layout/layout";
 
 const notes = [
